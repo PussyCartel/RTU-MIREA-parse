@@ -34,7 +34,7 @@ def get_dataframe(line, length, groups):
                       }).to_json(f'json/{groups[i]}.json')
         cols_empty += 1
 
-
+os.makedirs('json')
 for link in os.listdir("files/"):
     group = get_groups('files/'+link)
     try:
