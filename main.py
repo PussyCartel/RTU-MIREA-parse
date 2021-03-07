@@ -1,6 +1,7 @@
 import requests as rq
 import bs4
 import wget
+import os
 
 
 def parse_page(text):
@@ -18,5 +19,6 @@ def get_web_page(url):
 if __name__ == '__main__':
     text = get_web_page("https://www.mirea.ru/schedule/")
     array_of_urls = parse_page(text)[:49]
+    os.makedirs('files/')
     for url in array_of_urls:
         wget.download(url, out="files/")
